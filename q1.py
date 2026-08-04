@@ -97,7 +97,9 @@ def max_rating():
     global movienames
     global grades
     global avg 
+    global vally
 
+    vally = 0
     maxi = 0
     z = 0
     moviemax=[]
@@ -113,12 +115,32 @@ def max_rating():
                 maxi = avge
                 moviemax = [movienames[z],avge]
             else:
-                pass
+                if avge == maxi:
+                    moviemax[0]=[moviemax[0],movienames[z]]
+                    vally = 1
+                else:
+                    pass
             donemovies.append(movienames[z])
             z+=1
 
-    print(f"The highest rated movie is {moviemax[0]} with {moviemax[1]}")
+    if vally != 1:
+        print(f"The highest rated movie is {moviemax[0]} with {moviemax[1]}")
+    else: 
+        print(f"The highest rated movies are {moviemax[0][0]} and {moviemax[0][1]} with {moviemax[1]}")
 
+
+
+def ratings_count():
+    global movienames
+
+    m=0
+    number = 0
+    count= []
+    for movienames in movienames:
+        number = movienames.count(movienames[m])
+        
+
+    print(count)
 
        
 parse_ratings()
@@ -127,3 +149,4 @@ print(parseddata)
 #print(grades)
 average_rating("Barbie")
 max_rating()
+ratings_count()
