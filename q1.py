@@ -6,6 +6,7 @@ ratinglist = []
 movienames = []
 grades = []
 parseddata = []
+avg = 0
 
 def parse_ratings():
     global data
@@ -36,18 +37,19 @@ def parse_ratings():
 
     return
 
+
+
+
 movie = "Dune"
 def average_rating(movie):
-    global data
-    global singledata
-    global ratinglist
     global movienames
     global grades
-    global parseddata
+    global avg
+    
     y = 0
     num = 0
     preavg = 0
-    avg = 0
+    
     while y < len(movienames):
         if movie == movienames[y]:
             num +=1
@@ -56,15 +58,72 @@ def average_rating(movie):
         else:
             y+=1 
 
-    avg = preavg/num
+    if num > 0:
+        avg = preavg/num
+        print(f"The average for {movie} ist: {avg:.2}")
+    else:
+        print("Movie not on list. 0.0")
 
-    print(f"The average for {movie} ist: {avg:.2}")
+    return avg
+
+def inner_average_rating(movie):
+    global movienames
+    global grades
+    global avge
+    
+    y = 0
+    num = 0
+    preavg = 0
+    
+    while y < len(movienames):
+        if movie == movienames[y]:
+            num +=1
+            preavg += grades[y]
+            y +=1
+        else:
+            y+=1 
+
+    if num > 0:
+        avge = preavg/num
+    else:
+        pass
+
+    return avge
+
+
+
+
+def max_rating():
+    global movienames
+    global grades
+    global avg 
+
+    maxi = 0
+    z = 0
+    moviemax=[]
+    donemovies = []
+    while z < len(movienames):
+        if movienames[z] in donemovies:
+            pass
+            z += 1
+        else:
+            inner_average_rating(movienames[z])
+            temp = avge
+            if avge>maxi:
+                maxi = avge
+                moviemax = [movienames[z],avge]
+            else:
+                pass
+            donemovies.append(movienames[z])
+            z+=1
+
+    print(f"The highest rated movie is {moviemax[0]} with {moviemax[1]}")
 
 
        
 parse_ratings()
+print(parseddata)
 #print(movienames)
 #print(grades)
-
-print(parseddata)
-average_rating("Oppenheimer")
+average_rating("Barbie")
+max_rating()
