@@ -13,6 +13,7 @@ def parse_ratings():
     global ratinglist
     global movienames
     global grades
+    global parseddata
     x = 0
 
     for data in data.split(", "):
@@ -33,8 +34,37 @@ def parse_ratings():
         parseddata.append(temp)
         x += 1
 
+    return
+
+movie = "Dune"
+def average_rating(movie):
+    global data
+    global singledata
+    global ratinglist
+    global movienames
+    global grades
+    global parseddata
+    y = 0
+    num = 0
+    preavg = 0
+    avg = 0
+    while y < len(movienames):
+        if movie == movienames[y]:
+            num +=1
+            preavg += grades[y]
+            y +=1
+        else:
+            y+=1 
+
+    avg = preavg/num
+
+    print(f"The average for {movie} ist: {avg:.2}")
+
+
        
 parse_ratings()
 #print(movienames)
 #print(grades)
+
 print(parseddata)
+average_rating("Oppenheimer")
