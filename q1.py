@@ -135,12 +135,21 @@ def ratings_count():
 
     m=0
     number = 0
-    count= []
-    for movienames in movienames:
-        number = movienames.count(movienames[m])
-        
+    final = {}
+    allmovs = []
 
-    print(count)
+    while m < len(movienames):
+        if movienames[m] in allmovs:
+            m += 1
+            pass               
+        else:
+            allmovs.append(movienames[m])
+            temp = movienames.count(movienames[m])
+            final.update({f"{movienames[m]}":temp})
+            m += 1
+            pass
+
+    print(f"The movies received the following number of reviews: {final}.")
 
        
 parse_ratings()
