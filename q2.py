@@ -119,7 +119,7 @@ def honor_roll(grade):
 
             
 
-#subjects_of("anna")
-#takes_all()
+subjects_of("anna")
+takes_all()
 student_average("anna")
 honor_roll(2)
