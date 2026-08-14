@@ -20,5 +20,6 @@ def main():
 
     )
 
+
     print("Review:")
     print(response.choices[0].message.content)
