@@ -33,4 +33,5 @@ def scale_recipe(name,servings,*ingredients,unit="g",**options):
 scale_recipe("Licorice",0,("Licorice",1))
 scale_recipe("Toast",1,("Bread",25))
 scale_recipe("Pizza",3,("Dough",100),("Tomato Sauce",50),("Cheese",30),unit="oz")
-scale_recipe("Marble Cake",10,("Flour",100),("Eggs",25),("Chocolate Powder",50),("Vanilla Extract",5),("Milk",200),unit="g",bakefor="60 minutes",bakeat="175 C")
+scale_recipe("Marble Cake",10,("Flour",100),("Eggs",25),("Chocolate Powder",50),("Vanilla Extract",5),("Milk",200),
+              unit="g",bakefor="60 minutes",bakeat="175 C")

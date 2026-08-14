@@ -60,7 +60,7 @@ def average_rating(movie):
 
     if num > 0:
         avg = preavg/num
-        print(f"The average for {movie} ist: {avg:.2}")
+        print(f"The average for {movie} is: {avg:.2}")
     else:
         print("Movie not on list. 0.0")
 
